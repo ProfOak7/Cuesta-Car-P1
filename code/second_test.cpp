@@ -33,14 +33,15 @@ const int TEST_SPEED = 255;
 void leftMotor(int speedValue) {
 
   if (speedValue > 0) {
-    digitalWrite(LEFT_IN1, HIGH);
-    digitalWrite(LEFT_IN2, LOW);
+    // Inverted to match physical left motor orientation
+    digitalWrite(LEFT_IN1, LOW);
+    digitalWrite(LEFT_IN2, HIGH);
     analogWrite(LEFT_PWM, speedValue);
   }
 
   else if (speedValue < 0) {
-    digitalWrite(LEFT_IN1, LOW);
-    digitalWrite(LEFT_IN2, HIGH);
+    digitalWrite(LEFT_IN1, HIGH);
+    digitalWrite(LEFT_IN2, LOW);
     analogWrite(LEFT_PWM, -speedValue);
   }
 
@@ -57,15 +58,14 @@ void leftMotor(int speedValue) {
 void rightMotor(int speedValue) {
 
   if (speedValue > 0) {
-    // Inverted to match the physical right motor orientation
-    digitalWrite(RIGHT_IN1, LOW);
-    digitalWrite(RIGHT_IN2, HIGH);
+    digitalWrite(RIGHT_IN1, HIGH);
+    digitalWrite(RIGHT_IN2, LOW);
     analogWrite(RIGHT_PWM, speedValue);
   }
 
   else if (speedValue < 0) {
-    digitalWrite(RIGHT_IN1, HIGH);
-    digitalWrite(RIGHT_IN2, LOW);
+    digitalWrite(RIGHT_IN1, LOW);
+    digitalWrite(RIGHT_IN2, HIGH);
     analogWrite(RIGHT_PWM, -speedValue);
   }
 
